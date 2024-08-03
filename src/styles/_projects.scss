@@ -1,0 +1,59 @@
+@use 'var';
+
+.projects {
+    &__content {
+        margin-top: 64px;
+        position: relative;
+
+        &__project {
+            margin: 6em;
+            max-width: 832px;
+            border-radius: 8px;
+            transition: ease 0.5s;
+            border: 1px solid rgba($color: #ffffff, $alpha: .02);
+            padding: 1.5em 1em 2em 2em;
+            &:hover {
+                transition: ease 0.5s;
+                border: 1px solid var.$hlColor;
+            }
+            &__inside {
+                margin-top: 0.5em;
+                &>img {
+                    max-width: 356px;
+                    width: 100%;
+                }
+                & {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
+                &__icons {
+                    display: flex;
+                    justify-content: end;
+                    margin-right: 2em;
+                    margin-top: 4em;
+                }
+            }
+        }
+    }
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+        .title {
+            margin: 0;
+            padding: 0;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: var.$underLine;
+                left: 0;
+                bottom: -5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@use 'var';
+
+.header {
+    border-bottom: 3px solid var.$underLine;
+    background-color: rgba(var.$bgdColor, 0.8);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 22px 0;
+    }
+
+    &__branding {
+        display: flex;
+        align-items: center;
+
+        img {
+            max-width: 48px;
+            height: 48px;
+            max-height: 100%;
+            width: 100%;
+            margin-right: 16px;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+
+        &__item {
+            background-color: transparent;
+
+            &:nth-child(2) {
+                padding: 0 16px;
+            }
+        }
+    }
+}

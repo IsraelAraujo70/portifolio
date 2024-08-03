@@ -1,0 +1,47 @@
+@use 'var';
+.contact{
+    &__content{
+        &__links{
+            margin-top: 5em;
+            margin-left: 8em;
+            border-left: 2px solid var.$hlColor;
+            display: flex;
+            align-items: center;
+            &__item{
+                margin-right: 4em;
+                padding: 2em 0;
+                img{
+                    transition: ease 0.5s;
+                    &:hover {
+                        transform: scale(1.2); // Aumenta o tamanho do ícone em 20%
+                    }
+                    max-width: 80px;
+                    width: 100%;
+                }
+                &:first-child{
+                    margin-left: 2em;
+                }
+            }
+        }
+    }
+    &__title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px; 
+        .title {
+            margin: 0;
+            padding: 0;
+            position: relative;
+    
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: var.$underLine;
+                left: 0;
+                bottom: -5px; 
+            }
+        }
+    }
+}

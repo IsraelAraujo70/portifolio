@@ -1,0 +1,16 @@
+@use 'var';
+
+.footer {
+    border-top: 3px solid var.$underLine;
+    text-align: center;
+    margin-top: 8em;
+
+    &__container {
+        .title--small {
+            font-size: 20px;
+        }
+        & {
+            padding: 22px 0px;
+        }
+    }
+}

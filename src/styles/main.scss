@@ -1,0 +1,201 @@
+@use 'var';
+@use 'header';
+@use 'about';
+@use 'footer';
+@use 'projects';
+@use 'contact';
+
+@font-face {
+    font-family: Electrolize;
+    src: url(../../assets/fonts/Electrolize-Regular.ttf);
+    font-weight: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Electrolize, sans-serif;
+    list-style: none;
+}
+
+body {
+    background-color: var.$bgdColor;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(var.$txt1Color, 0.025), transparent 40%);
+    transition: background 0.1s;
+    z-index: 1;
+}
+
+.container, .about, .projects, .contact, .footer {
+    position: relative;
+    z-index: 2;
+}
+
+section {
+    margin-left: 6em;
+}
+
+@mixin text($fontSize: 18px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: var.$txt2Color;
+}
+
+@mixin title($fontSize: 32px) {
+    @include text($fontSize);
+    color: var.$txt1Color;
+}
+
+.text--big {
+    @include text(20px);
+}
+
+.text {
+    @include text();
+}
+
+.text--small {
+    @include text(14px);
+}
+
+.title--big {
+    @include title(36px);
+}
+
+.title {
+    @include title();
+}
+
+.title--small {
+    @include title(30px);
+}
+
+.title--smaller {
+    @include title(18px);
+}
+
+.highlight {
+    color: var.$hlColor;
+}
+
+.button {
+    text-decoration: none;
+    @include title(32);
+    padding: 8px 22px;
+    border: 2px solid var.$underLine;
+    border-radius: 8px;
+
+    &:hover {
+        border: 2px solid var.$txt1Color;
+        background-color: var.$txt1Color;
+        color: var.$bgdColor;
+    }
+}
+
+.container {
+    padding: 0 11.2vw;
+}
+
+.underline {
+    padding-top: 3px;
+    background-color: var.$underLine;
+    width: 100%;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        &__item {
+            width: 100%;
+            text-align: left;
+            padding: 10px 0;
+        }
+    }
+
+    .about__content__intro {
+        grid-template-columns: 1fr;
+        gap: 2em;
+    }
+
+    .projects__content__project__inside {
+        grid-template-columns: 1fr;
+    }
+
+    .skills__content__tools {
+        grid-template-columns: 1fr;
+        margin: 0 1em;
+    }
+
+    .education__content__item,
+    .languages__content__item {
+        margin-left: 1em;
+    }
+
+    section {
+        margin-left: 2em;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        &__item {
+            width: 100%;
+            text-align: left;
+            padding: 10px 0;
+        }
+    }
+
+    .about__content__intro {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .projects__content__project__inside {
+        grid-template-columns: 1fr;
+    }
+
+    .skills__content__tools {
+        grid-template-columns: 1fr;
+        margin: 0 1em;
+    }
+
+    .education__content__item,
+    .languages__content__item {
+        margin-left: 1em;
+    }
+
+    section {
+        margin-left: 1em;
+    }
+}
