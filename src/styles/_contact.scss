@@ -12,11 +12,11 @@
                 padding: 2em 0;
                 img{
                     transition: ease 0.5s;
+                    max-width: 80px;
+                    width: 100%;
                     &:hover {
                         transform: scale(1.2); // Aumenta o tamanho do ícone em 20%
                     }
-                    max-width: 80px;
-                    width: 100%;
                 }
                 &:first-child{
                     margin-left: 2em;

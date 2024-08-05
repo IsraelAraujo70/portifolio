@@ -43,10 +43,6 @@ body {
     z-index: 2;
 }
 
-section {
-    margin-left: 6em;
-}
-
 @mixin text($fontSize: 18px) {
     font-size: $fontSize;
     line-height: $fontSize + 10px;
@@ -114,88 +110,244 @@ section {
     width: 100%;
 }
 
-/* Tablets */
-@media (max-width: 1024px) {
-    .header__container {
-        flex-direction: column;
-        align-items: flex-start;
+// Tablet and mobile
+@media (max-width: 1023px) {
+    .container {
+        padding: 0 2vw;
     }
-
-    .header__nav {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-
-        &__item {
-            width: 100%;
-            text-align: left;
-            padding: 10px 0;
+    .light {
+        display: none;
+        visibility: hidden;
+    }
+    section {
+        margin: 1em;
+        width: 80%;
+    }
+    .text--big {
+        @include text(16px);
+    }
+    .text {
+        @include text(14px);
+    }
+    .text--small {
+        @include text(12px);
+    }
+    .title--big {
+        @include title(28px);
+    }
+    .title {
+        @include title(26px);
+    }
+    .title--small {
+        @include title(22px);
+    }
+    .title--smaller {
+        @include title(18px);
+    }
+    .skills {
+        &__content {
+            &__tools {
+                margin: 3em 0 0 6em;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                width: 80%;
+                align-items: center;
+                gap: 1em;
+                img {
+                    max-width: 50px;
+                    width: 100%;
+                }
+                .grunt-icon {
+                    max-width: 40px;
+                }
+                .HTML5-icon {
+                    max-width: 42px;
+                }
+                h6 {
+                    padding-top: 6px;
+                }
+            }
         }
     }
-
-    .about__content__intro {
-        grid-template-columns: 1fr;
-        gap: 2em;
-    }
-
-    .projects__content__project__inside {
-        grid-template-columns: 1fr;
-    }
-
-    .skills__content__tools {
-        grid-template-columns: 1fr;
-        margin: 0 1em;
-    }
-
-    .education__content__item,
-    .languages__content__item {
-        margin-left: 1em;
-    }
-
-    section {
-        margin-left: 2em;
+    .projects {
+        &__content {
+            .container {
+                margin: 0;
+            }
+            margin: 0;
+            &__project {
+                margin: 1em;
+                max-width: 600px;
+                padding: 20px 8px 8px 20px;
+                &__inside {
+                    margin-top: 0.5em;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    &>img {
+                        max-width: 248px;
+                        width: 100%;
+                    }
+                    &__icons {
+                        display: flex;
+                        justify-content: end;
+                        margin-right: 1em;
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .header__container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header__nav {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-
-        &__item {
-            width: 100%;
-            text-align: left;
-            padding: 10px 0;
+@media (max-width: 763px) {
+    .header {
+        &__container {
+            display: flex;
+            flex-direction: column;
+        }
+        &__nav {
+            display: flex;
+            flex-direction: column;
+            &__item {
+                &:first-child {
+                    margin-top: 1em;
+                }
+                &:nth-child(2) {
+                    padding: 10px 0;
+                }
+            }
         }
     }
-
-    .about__content__intro {
-        grid-template-columns: 1fr;
-        gap: 1em;
+    .button {
+        text-align: center;
+        line-height: normal;
+        display: block;
+        padding: 0 auto;
     }
-
-    .projects__content__project__inside {
-        grid-template-columns: 1fr;
+    .about {
+        &__content {
+            &__intro {
+                display: block;
+                img {
+                    margin-bottom: 2em;
+                }
+            }
+        }
     }
-
-    .skills__content__tools {
-        grid-template-columns: 1fr;
-        margin: 0 1em;
+    .skills {
+        &__content {
+            &__tools {
+                margin: 3em 0 0 3em;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 80%;
+                align-items: center;
+                gap: 1em;
+                border-left: 2px solid var.$hlColor;
+                img {
+                    max-width: 50px;
+                    width: 100%;
+                }
+                .grunt-icon {
+                    max-width: 40px;
+                }
+                .HTML5-icon {
+                    max-width: 42px;
+                }
+                h6 {
+                    padding-top: 6px;
+                }
+            }
+        }
     }
-
-    .education__content__item,
-    .languages__content__item {
-        margin-left: 1em;
+    .education {
+        &__content {
+            &__item {
+                margin-left: 3em;
+                &__detail {
+                    margin-left: 1em;
+                    margin-bottom: 1em;
+                    h6 {
+                        font-size: 16px;
+                        line-height: normal;
+                    }
+                    img {
+                        margin-right: 16px;
+                        max-width: 30px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
-
-    section {
-        margin-left: 1em;
+    .languages {
+        &__content {
+            &__item {
+                margin-left: 3em;
+                &__detail {
+                    margin-left: 1em;
+                    margin-bottom: 1em;
+                    h6 {
+                        font-size: 16px;
+                        line-height: normal;
+                    }
+                    img {
+                        margin-right: 16px;
+                        max-width: 60px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .projects {
+        &__content {
+            &__project {
+                width: 350px;
+                margin: 2em auto;
+                padding: 1.5em 1em 1em 1em;
+                &__inside {
+                    display: block;
+                    margin-top: 0.5em;
+                    &>img {
+                        width: 80%;
+                        margin-left: 1.5em;
+                        margin-bottom: 1em;
+                        margin-top: 1em;
+                    }
+                    &__icons {
+                        a {
+                            img {
+                                width: 36px;
+                            }
+                        }
+                        margin-right: 1em;
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
+    }
+    .contact {
+        &__content {
+            &__links {
+                margin-top: 2em;
+                margin-left: 3em;
+                &__item {
+                    margin-right: 1em;
+                    padding: 1em 0;
+                    img {
+                        max-width: 40px;
+                    }
+                    &:first-child {
+                        margin-left: 1em;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        margin-top: 3em;
     }
 }
+

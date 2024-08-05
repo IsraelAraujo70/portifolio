@@ -1,11 +1,28 @@
 @use 'var';
 
+:root {
+    --underLine: #A6A6A6; /* Defina a cor conforme a sua variável SCSS */
+}
+
 .header {
     border-bottom: 3px solid var.$underLine;
     background-color: rgba(var.$bgdColor, 0.8);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: border-bottom 0.3s ease; /* Adiciona a transição para a borda */
+
+    &__menu-button {
+        display: none;
+        background: none;
+        border: 1px solid var.$txt1Color;
+        border-radius: 8px;
+        color: var.$txt1Color;
+        padding: 4px 16px;
+        font-size: 2em;
+        cursor: pointer;
+    }
 
     &__container {
         display: flex;
@@ -32,10 +49,58 @@
         justify-content: space-between;
 
         &__item {
+            margin: 0 10px;
             background-color: transparent;
 
             &:nth-child(2) {
                 padding: 0 16px;
+            }
+            &.active a {
+                border: 2px solid var.$txt1Color;
+                background-color: var.$txt1Color;
+                color: var.$bgdColor;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__menu-button {
+            margin-top: 0.5em;
+            display: block;
+        }
+
+        &__nav {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: rgba(var.$bgdColor, 0.8);
+            z-index: 999;
+            border-bottom: 3px solid var.$underLine;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+
+            &.show {
+                display: flex;
+                max-height: 300px; /* Defina uma altura máxima que acomode todos os itens */
+            }
+
+            &__item {
+                margin: 10px 0;
+                text-align: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+
+                &:first-child {
+                    margin-top: 1em;
+                }
+            }
+
+            &.show &__item {
+                opacity: 1;
             }
         }
     }
