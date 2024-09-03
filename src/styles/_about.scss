@@ -228,3 +228,15 @@
         }
     }
 }
+
+@media (max-width:1023px) and (min-width:765px) {
+    .about{
+        &__content {
+            &__intro {
+                margin: 60px 2vw;
+                max-width: 1024px;
+                gap: 2em;
+            }
+        }
+    }
+}

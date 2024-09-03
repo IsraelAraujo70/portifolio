@@ -101,7 +101,9 @@ body {
 }
 
 .container {
-    padding: 0 11.2vw;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 .underline {
@@ -110,11 +112,14 @@ body {
     width: 100%;
 }
 
+@media (max-width: 1023px) and (min-width:764px) {
+    .container {
+        width: 90%;
+    }
+}
+
 // Tablet and mobile
 @media (max-width: 1023px) {
-    .container {
-        padding: 0 2vw;
-    }
     .light {
         display: none;
         visibility: hidden;
@@ -200,6 +205,9 @@ body {
 }
 
 @media (max-width: 763px) {
+    .container {
+        width: 90%;
+    }
     .header {
         &__container {
             display: flex;
