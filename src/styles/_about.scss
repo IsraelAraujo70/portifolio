@@ -163,8 +163,9 @@
         }
         &__item{
             margin-left: 6em;
-            &:last-child {
+            &:nth-child(2) {
                 margin-top: 3em;
+                margin-bottom: 3em;
             }
             & {
                 border-left: 2px solid var.$hlColor;
